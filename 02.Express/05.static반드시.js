@@ -2,7 +2,7 @@ const express = require('express');
 const util = require('util'); 
 
 const app = express();
-app.use(express.static(__dirname + '/public')); //static경로지정(변하지않는) 이것이 미들웨어?
+app.use(express.static(__dirname + '/public')); //static경로지정(변하지않는) 이것이 미들웨어세팅
 app.get('/', function(req, res) {                  // 
     let html = `
         <!DOCTYPE html>
