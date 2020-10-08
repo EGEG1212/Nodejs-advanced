@@ -1,6 +1,7 @@
 package-lock.json
 tmp/ 
 #tmp파일에 있는 글들은 안올라간다
+mySQL.json
 
 # Logs
 logs
