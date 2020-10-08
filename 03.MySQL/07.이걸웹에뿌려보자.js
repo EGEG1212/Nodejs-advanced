@@ -63,3 +63,15 @@ let server = http.createServer((req, res) => {
 server.listen(3000, () => {
     console.log('Server running at http://localhost:3000');
 }); 
+
+
+
+/* http에서 복사해다가 
+x.html 에서 편집; 
+	테이블 tr/ th 필드들 .. 위에만 복사 (테이블닫는태그버리고)
+07.js에다가  편집 for반복문부분에
+		+=`<tr><td>${row.name}</td>
+			<td>${row.population}</td>
+			<td>${row.language}</td>
+		</tr>`
+html+= 닫는태그들 넣어주고 */
