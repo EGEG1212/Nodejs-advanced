@@ -73,7 +73,7 @@ module.exports = {                          //module.exports
         conn.end();
     },
     updateSong:     function (params, callback) {      //이 순서대로 3개모두 받아야해서 params
-        let sql = `update song set title=?, lyrics=? where sid=?;`; 
+        let sql = `update song set title=?, name=?, debut=?, lyrics=? where sid=?;`; 
         let conn = this.getConnection(); 
         conn.query(sql, params, function(error, fields) {        //여기도 파람스
             if (error)

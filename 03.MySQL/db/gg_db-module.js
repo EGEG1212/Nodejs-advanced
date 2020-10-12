@@ -10,7 +10,8 @@ module.exports = {                          //module.exports
             user:   config.user,
             password:   config.password,
             database:   config.database,
-            port:   config.port                     //보안패키지 복사해놓기
+            port:   config.port,  
+            dateStrings : 'date'                   //보안패키지 복사해놓기
         });
         conn.connect(function(error) {
             if (error)
@@ -20,7 +21,7 @@ module.exports = {                          //module.exports
     },
     getAllLists:    function (callback) {       //콜백들어감
         let conn = this.getConnection();            //내꺼안에서 부를꺼니까 this
-        let sql = `SELECT * FROM song ORDER BY sid DESC LIMIT 5;`;
+        let sql = `SELECT * FROM girl_group;`;
         conn.query(sql, (error, rows, fields) => {
             if (error)
                 console.log(error);
@@ -30,10 +31,8 @@ module.exports = {                          //module.exports
     }, 
     getJoinLists:    function (callback) {       //콜백들어감
         let conn = this.getConnection();            //내꺼안에서 부를꺼니까 this
-        let sql = `SELECT song.sid, song.title, gg.name, song.lyrics FROM song 
-                    left JOIN girl_group AS gg
-                    ON song.sid=gg.hit_song_id
-                    ORDER BY song.sid DESC 
+        let sql = `SELECT  * FROM girl_group 
+                    ORDER BY hit_song_id DESC 
                     LIMIT 10;  `;
         conn.query(sql, (error, rows, fields) => {
             if (error)
@@ -42,8 +41,8 @@ module.exports = {                          //module.exports
         });
         conn.end();
     }, 
-    insertSong:     function (params, callback) {
-        let sql = `insert into song(title, lyrics) values (?, ?);`; //고수는 파라메타로 받는다!!!  ?. ? 하나하나 해당된다.
+    insertGg:     function (params, callback) {
+        let sql = `insert into girl_group(ggid, name, debut, hit_song_id) values (?, ?, ?, ?);`; //고수는 파라메타로 받는다!!!  ?. ? 하나하나 해당된다.
     let conn = this.getConnection(); 
         conn.query(sql, params, function(error, fields) {        //데이터를 얻을게 없어서 row삭제 (row결과있을때만)
             if (error)
@@ -52,8 +51,8 @@ module.exports = {                          //module.exports
         });
         conn.end();
     },
-    deleteSong:     function (sid, callback) {
-        let sql = `delete from song where sid=?;`; 
+    deleteGg:     function (sid, callback) {
+        let sql = `delete from girl_group where hit_song_id=?;`; 
         let conn = this.getConnection(); 
         conn.query(sql, sid, function(error, fields) {        //1개삭제여서 sid만 넣음됨
             if (error)
@@ -62,8 +61,8 @@ module.exports = {                          //module.exports
         });
         conn.end();
     },
-    getSong:     function (sid, callback) {
-        let sql = `SELECT * FROM song WHERE sid=?;`; 
+    getGg:     function (sid, callback) {
+        let sql = `SELECT * FROM girl_group WHERE hit_song_id=?;`; 
         let conn = this.getConnection(); 
         conn.query(sql, sid, function(error, rows, fields) {       //조회 쿼리기 때문에 row가 나옴
             if (error)
@@ -72,8 +71,8 @@ module.exports = {                          //module.exports
         });
         conn.end();
     },
-    updateSong:     function (params, callback) {      //이 순서대로 3개모두 받아야해서 params
-        let sql = `update song set title=?, lyrics=? where sid=?;`; 
+    updateGg:     function (params, callback) {      //이 순서대로 3개모두 받아야해서 params
+        let sql = `update girl_group set name=?, debut=? where hit_song_id=?;`; 
         let conn = this.getConnection(); 
         conn.query(sql, params, function(error, fields) {        //여기도 파람스
             if (error)

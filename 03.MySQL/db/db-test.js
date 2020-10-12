@@ -24,7 +24,7 @@ let sql = `SELECT song.sid, song.title, gg.NAME, song.lyrics FROM song
         ORDER BY song.sid DESC 
         LIMIT 10;  `;
 let conn = getConnection(); 
-conn.query(sql, , function(error, rows, fields) {       
+conn.query(sql, function(error, rows, fields) {       
     if (error)
         console.log(error); 
     console.log(rows);                         

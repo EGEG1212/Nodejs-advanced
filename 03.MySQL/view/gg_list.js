@@ -2,11 +2,11 @@ module.exports.mainForm=   function (rows) {  //하나만 있을 경우. 이렇�
         let tableRow = ''
         for (let row of rows) {
             tableRow += `<tr>
-                <td>${row.sid}</td>
-                <td>${row.title}</td>
-                <td>${row.lyrics}</td>
-                <td><a href="/update/${row.sid}">수정 </a>
-                    <a href="/delete/${row.sid}">삭제</a>
+                <td>${row.hit_song_id}</td>
+                <td>${row.name}</td>
+                <td>${row.debut}</td>
+                <td><a href="/update/${row.hit_song_id}">수정 </a>
+                    <a href="/delete/${row.hit_song_id}">삭제</a>
                 </td>
             </tr>`;
         }
@@ -16,10 +16,10 @@ module.exports.mainForm=   function (rows) {  //하나만 있을 경우. 이렇�
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> girl_group조회</title>
+    <title> 걸그룹조회</title>
 </head>
 <body>
-    <h3>노래 조회</h3>
+    <h3> 걸그룹조회</h3>
     <hr>
     <table>
         <tr>
