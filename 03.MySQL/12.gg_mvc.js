@@ -6,17 +6,12 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
-    /* dm.getAllLists(rows => {
-        const View = require('./view/list') ;       //상단에 있다가 여기서 열어꺼내는걸로
-        let html = View.mainForm(rows);
-        res.end(html);
-    }); */
-    dm.getJoinLists(rows => {
-        const View = require('./view/gg_join') ;       //상단에 있다가 여기서 열어꺼내는걸로
+    dm.getAllLists(rows => {
+        const View = require('./view/gg_list') ;       //상단에 있다가 여기서 열어꺼내는걸로
         let html = View.mainForm(rows);
         res.end(html);
     });
-});
+    });
 
 app.get('/gg_insert', (req, res) => {                //읽어서 화면을 클라이언트에게 던져주려
     const view = require('./view/gg_insert');      //모듈에서 읽는형태. 앞으로 이렇게 할것
@@ -34,17 +29,17 @@ app.post('/gg_insert', (req, res) =>{
     });
 });
 
-app.get('/gg_delete/:sid', (req, res) => {         //😛삭제는 get만 해도되나?
-    let sid = parseInt(req.params.sid);         //요렇게 받아요
-    console.log(sid);
-    dm.deleteGg(sid, () => {
+app.get('/gg_delete/:ggid', (req, res) => {         //😛삭제는 get만 해도되나?
+    let ggid = parseInt(req.params.ggid);         //요렇게 받아요
+    console.log(ggid);
+    dm.deleteGg(ggid, () => {
         res.redirect('/');
     });
 });
 
-app.get('/gg_update/:sid', (req, res) => {         //😋업데이트는 1)data가져와서,form만들기 2)form보여주기
-    let sid = parseInt(req.params.sid);         //요렇게 받아요
-    dm.getGg(sid, result => {
+app.get('/gg_update/:ggid', (req, res) => {         //😋업데이트는 1)data가져와서,form만들기 2)form보여주기
+    let ggid = parseInt(req.params.ggid);         //요렇게 받아요
+    dm.getGg(ggid, result => {
         const View = require('./view/gg_update') ;       //상단에 있다가 여기서 열어꺼내는걸로
         let html = View.updateForm(result);
         res.send(html);
@@ -52,10 +47,10 @@ app.get('/gg_update/:sid', (req, res) => {         //😋업데이트는 1)data�
 });
 
 app.post('/gg_update', (req, res) => {
-    let sid = parseInt(req.body.sid);  //🎈파람스가 아니라 바디로 받아요(포스트니까?)읭?
+    let ggid = parseInt(req.body.ggid);  //🎈파람스가 아니라 바디로 받아요(포스트니까?)읭?
     let title = req.body.title;                  
     let lyrics = req.body.lyrics;
-    let params = [title, lyrics, sid]; 
+    let params = [title, lyrics, ggid]; 
     
     dm.updateGg(params, () => {           //🎈파람스로받고 콜백할게 없어서 빈칸?
         res.redirect('/');
