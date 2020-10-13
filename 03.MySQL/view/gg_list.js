@@ -5,9 +5,8 @@ module.exports.mainForm=   function (rows) {  //하나만 있을 경우. 이렇�
             <td>${row.ggid}</td>
             <td>${row.singer}</td>
             <td>${row.debut}</td>
-            <td>${row.hit_song_id}</td>
-            <td><a href="/update/${row.sid}">수정 </a>
-                <a href="/delete/${row.sid}">삭제</a>
+            <td><a href="/update/${row.ggid}">수정 </a>
+                <a href="/delete/${row.ggid}">삭제</a>
             </td>
         </tr>`;
     }
@@ -27,7 +26,6 @@ module.exports.mainForm=   function (rows) {  //하나만 있을 경우. 이렇�
         <th>ggid</th>
         <th>가수</th>
         <th>데뷔일</th>
-        <th>히트송id</th>
         <th>액션</th>
     </tr>
     ${tableRow}

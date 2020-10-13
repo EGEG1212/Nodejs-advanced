@@ -17,7 +17,7 @@ shasum.update('1234');               //주로 패스워드 (암호화할 평문)
 let output = shasum.digest('base64');      //2가지] hex(16진수), base64(대소문자+숫자+기호)sha256렝스44 sha512렝스88
 
 let sql = `insert into users(uid, pwd, name) values(?, ?, ?);`;
-let params = ['damin', output, '관리자']
+let params = ['leesy', output, '이수연']
            /*   values ('admin', '${output}'' '관리자')`;  //디폴트 필드명은 안적어도 됨 */
 conn.query(sql, params, function(error, fields){        //파람스 추가 데이터를 얻을게 없어서 row삭제 (row결과있을때만)
     if (error)

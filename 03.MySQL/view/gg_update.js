@@ -10,12 +10,12 @@ module.exports.updateForm=   function (result) {  //insert카피해온 update �
     <body>
         <h1>걸그룹 수정</h1>
         <hr>
-        <form action="/gg_update" method="post">
+        <form action="/update" method="post">
         <input type="hidden" name="ggid" value="${result.ggid}">          
             <table>
                 <tr>
                     <td><label for="singer">걸그룹 이름</label></td>
-                    <td><input type="text" name="singer" id="singer" value="${result.singer}"></td>
+                    <td><input type="text" name="singer" id="singer" value="${result.NAME}"></td>
                 </tr>
                 <tr>
                     <td><label for="debut">데뷔일</label></td>

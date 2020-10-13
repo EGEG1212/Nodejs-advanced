@@ -23,7 +23,7 @@ let uid = 'adminh';      //나중엔 req.body.uid로 바뀔것임
 let pwd = '1234';       //req.body.pwd로 바뀔것임
 let pwdHash = ganerateHash(pwd);
 
-let sql = `select * from users where uid like ?;`;
+let sql = `select * from users where uid like ?;`;      //이부분이! 
 conn.query(sql, uid, function(error, results, fields){        //uid값 받고 result 결과출력 이후 if문
     if (error)
         console.log(error);

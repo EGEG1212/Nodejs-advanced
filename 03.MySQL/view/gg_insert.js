@@ -10,7 +10,7 @@ module.exports.insertForm=   function () {
     <body>
         <h1>걸그룹 추가</h1>
         <hr>
-        <form action="/gg_insert" method="post">
+        <form action="/insert" method="post">
             <table>
                 <tr>
                     <td><label for="singer">걸그룹 이름</label></td>
