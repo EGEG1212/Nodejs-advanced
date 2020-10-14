@@ -11,7 +11,7 @@ module.exports = {                          //module.exports
             password:   config.password,
             database:   config.database,
             port:   config.port,                        //보안패키지 복사해놓기
-            dateStrings : 'date'                    //🤩승모가 찾은거, 대박대박
+            dateStrings : 'date'                    //🤩승모가 찾은거!! 대박대박
         });
         conn.connect(function(error) {
             if (error)
