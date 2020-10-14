@@ -1,5 +1,5 @@
 module.exports = {
-    header: function() {
+    header:     function() {
         return `
 <!DOCTYPE html>
 <html lang="ko">
@@ -15,7 +15,7 @@ module.exports = {
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <img src="/logo.png" style="height: 40px; margin-left: 50px; margin-right: 100px;" alt="호서직업"> 
+    <img src="/img/logo.png" style="height: 40px; margin-left: 50px; margin-right: 100px;" alt="호서직업"> 
         <ul class="nav mr-auto ">
             <li class="nav-item">
                 <a class="nav-link" href="index.html"><i class="fas fa-home"></i>HOME</a>
@@ -26,7 +26,7 @@ module.exports = {
         </ul>
         <div class="navbar-text fixed-right" id="weather">
             홍길동님 반가워요~ &nbsp&nbsp&nbsp&nbsp
-            날씨: 맑다맑아 온도: 딱좋아
+            날씨: 맑음 27도 온도: 딱좋음
         </div>
     </nav>
         `;
