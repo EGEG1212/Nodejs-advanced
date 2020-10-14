@@ -25,6 +25,7 @@ module.exports.test = function() {
       <i class="fas fa-car"></i>
       <i class="fas fa-file"></i>
       <i class="fas fa-bars"></i>
+      <i class="fas fa-air-freshener"></i>
     </div>
     
     </body>
