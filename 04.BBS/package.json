@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
     "@popperjs/core": "^2.5.3",
     "and": "0.0.3",
     "body-parser": "^1.19.0",
