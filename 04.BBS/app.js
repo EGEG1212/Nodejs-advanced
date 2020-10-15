@@ -5,6 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const uRouter = require('./userRouter');
 const fs = require('fs');
+const dm = require('./db/db-modules');  
 
 const app = express();
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
@@ -29,6 +30,9 @@ app.get('/', (req, res) => {
     let html = view.test();
     res.send(html); */
 });
+
+
+
 
 app.listen(3000, () => {
     console.log('Server Running at http://127.0.0.1:3000');

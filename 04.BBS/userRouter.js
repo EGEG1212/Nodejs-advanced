@@ -12,7 +12,7 @@ uRouter.post('/register', (req, res) => {
     let pwd = req.body.pwd;
     let pwd2 = req.body.pwd2;
     let uname = req.body.uname;
-    res.send(` <h1> uid: ${uid}, pwd: ${pwd}, pwd2: ${pwd2}, uname: ${uname} </h1>`)
+    res.send(` <h1> uid: ${uid}, pwd: ${pwd}, pwd2: ${pwd2}, uname: ${uname}, email: ${email} </h1>`)
 });
 
 module.exports = uRouter;

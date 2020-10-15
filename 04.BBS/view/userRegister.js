@@ -26,15 +26,20 @@
                     <td><label for="pwd2">패스워드 확인</label></td>
                     <td><input type="password" name="pwd2" id="pwd2"></td>
                 </tr>
-                <td><label for="uname">이름</label></td>
-                <td><input type="text" name="uname" id="uname"></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <input class="btn btn-primary" type="submit" value="로그인"></input>
-                    <input class="btn btn-secondary" type="reset" value="취소"></input>
-                </td>
-            </tr>
+                <tr>
+                    <td><label for="uname">이름</label></td>
+                    <td><input type="text" name="uname" id="uname"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">이메일</label></td>
+                    <td><input type="text" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input class="btn btn-primary" type="submit" value="가입"></input>
+                        <input class="btn btn-secondary" type="reset" value="취소"></input>
+                    </td>
+                </tr>
             </table>
             </form>
         </div>
