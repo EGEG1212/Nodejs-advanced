@@ -5,6 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const dm = require('./db/userdb-module');
 const am = require('./view/alertMsg');
+const ut = require('./28.util');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -38,7 +39,7 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
     let uid = req.body.uid;
     let pwd = req.body.pwd;
-    let pwdHash = dm.generateHash(pwd);
+    let pwdHash = ut.generateHash(pwd);
     dm.getUserInfo(uid, result => {
         if (result === undefined) {
             let html = am.alertMsg(`Login 실패: uid ${uid}이/가 없습니다.`, '/login');
