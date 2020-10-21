@@ -41,9 +41,12 @@ module.exports.list = function (navBar, data, pageNo, startPage, endPage, totalP
 	return `
 		${tplt.header()}
         ${navBar}
-<div class="container" style="margin-top: 90px;">  
-    <div class="row">
+        <div class="container" style="margin-top: 90px;">  
+        <div class="row">
         <div class="col-12">
+        <style>
+	      background-image : url('../public/img/bg.jpg');
+        </style>
             <h3>게시글 목록</h3>
             <hr>
         </div>

@@ -19,8 +19,8 @@ module.exports = {
     navBar:     function(uname) {
         return `
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">
-                <img src="/img/hoseo.png" alt="호서직업능력개발원"
+            <a class="navbar-brand" href="http://localhost:3000/bbs/list/1"> 
+                <img src="/img/logo.png" alt="호서직업능력개발원"
                     style="height: 40px; margin-left: 50px; margin-right: 100px;">
             </a>
             <ul class="nav mr-auto">
@@ -33,19 +33,20 @@ module.exports = {
                 <li class="nav-item">
                     <a class="nav-link" href="/user/dispatch"><i class="far fa-user"></i>사용자</a>
                 </li>
-                <li class="nav-item ml-5">
-                    <a class="nav-link" href="/logout">로그아웃</a>
+                <div class="navbar-text fixed-right" style="margin-left: 100px;">
+                    ${uname}님 반갑습니다.
+                </div>
+                <li class="nav-item">
+                <a class="nav-link" href="/logout">로그아웃</a>
                 </li>
             </ul>
-            <nav class="navbar navbar-light mr-4">
-                <form class="form-inline" action="/bbs/search" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search" name="keyword">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </nav>
-            <div class="navbar-text fixed-right mr-3">
-                ${uname}님 반갑습니다.
-            </div>
+            
+                <nav class="navbar navbar-light">
+                    <form class="form-inline" action="/bbs/search" method="post">
+                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search" name="keyword">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </nav>
         </nav>
         `;
     },

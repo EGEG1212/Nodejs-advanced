@@ -1,9 +1,9 @@
 const tplt = require('./template');
 const ut = require('../util');
 
-module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르는놈userRouter과 불리는 이것들의 이름을 같게 맞췄을뿐
+module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르는놈userRouter과 불리는 이것들의 이름을 같게 맞췄을뿐,자리만 같으면 됨
     let trs = '';                                                       //내용trs이라고 그냥 정했답니다let trs = ''; for(let row of rows)
-    for (let row of rows) {                                             //🎈아래 14줄 폰트어썸 왜 안나옴???
+    for (let row of rows) {                                            
         trs += `<tr class="d-flex">
                     <td class="col-2" style="text-align: center;">${row.uid}</td>
                     <td class="col-2" style="text-align: center;"><strong>${row.uname}</strong></td>

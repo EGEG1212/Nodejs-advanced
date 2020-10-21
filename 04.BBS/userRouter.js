@@ -111,7 +111,7 @@ uRouter.post('/update', ut.isLoggedIn, (req, res) => {
 
 uRouter.get('/delete/:uid', ut.isLoggedIn, (req, res) => {
     let uid = req.params.uid;
-    if (req.session.uid !== 'admin') {              //로그인되어있는 아이디가 admin과 다르면
+    if (req.session.uid !== 'admin') {              //로그인되어있는 아이디가 admin과 다르면(일반회원)
         let html = alert.alertMsg('삭제 권한이 없습니다.', `/bbs/list/1`);
         res.send(html);
     } else {                                    //로그인되어있는 아이디가 admin이면
