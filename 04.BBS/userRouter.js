@@ -61,15 +61,31 @@ uRouter.post('/register',  (req, res) => {
     let uname = req.body.uname;
     let tel = req.body.tel;
     let email = req.body.email;
-    if (pwd !== pwd2) {
-        let html = alert.alertMsg('패스워드가 다릅니다.', '/user/register');
-        res.send(html);
-    } else {
-        let pwdHash = ut.generateHash(pwd);
-        let params = [uid, pwdHash, uname, tel, email];
-        dm.registerUser(params, () => {
-            res.redirect('/login');
-        });
+    if(uid.length>=2) {
+        if(pwd.length>3) {
+            if(uname.length>=2) {
+                if (pwd === pwd2) {
+                    let pwdHash = ut.generateHash(pwd);
+                    let params = [uid, pwdHash, uname, tel, email];
+                    dm.registerUser(params, () => {
+                        let html= alert.alertMsg('환영합니다! 회원가입이 완료되었습니다.',('/login'));
+                        res.send(html);
+                    })
+                }else {
+                    let html = alert.alertMsg('패스워드가 일치하지 않습니다.', '/user/register');
+                    res.send(html);
+                }
+            }else {
+                let html= alert.alertMsg('이름은 2글자 이상이여야 합니다.',(`/user/register`));
+                    res.send(html);
+            }
+        }else {
+            let html= alert.alertMsg('패스워드는 4글자 이상이여야 합니다.',(`/user/register`));
+            res.send(html); 
+        }
+    }else {
+        let html= alert.alertMsg('아이디는 2글자 이상이여야 합니다.',(`/user/register`));
+            res.send(html);
     }
 });
 

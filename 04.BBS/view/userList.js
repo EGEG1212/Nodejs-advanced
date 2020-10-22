@@ -28,7 +28,7 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
                         </span>
                     </li>`;
         else
-            pages += `<li class="page-item"><a class="page-link" href="/bbs/list/${page}">${page}</a></li>`;
+            pages += `<li class="page-item"><a class="page-link" href="/user/list/${page}">${page}</a></li>`;
     }
     pages += `<li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
@@ -41,6 +41,10 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
 <div class="container" style="margin-top: 90px;">  
     <div class="row">
         <div class="col-12">
+        <style>
+            body::after { width: 100%; height: 100%; content: "";  top: 0; left: 0; z-index: -1; opacity: 0.3;background: url("./img/bg.jpg") ; position: absolute; background-size: cover;  }
+            h3 {text-align: center; margin-top: 5%;}
+        </style>
             <h3>사용자 목록</h3>
             <hr>
         </div>

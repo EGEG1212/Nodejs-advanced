@@ -38,7 +38,7 @@ module.exports.update = function(navBar, data) {
                         <td><input type="text" name="tel" id="tel" value="${data.tel}"></td>
                     </tr>
                     <tr>
-                        <td><label for="email">이메일</label></td>
+                    <td><label for="email">이메일</label></td>
                         <td><input type="text" name="email" id="email" value="${data.email}"></td>
                     </tr>
                     <tr>

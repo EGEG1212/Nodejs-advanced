@@ -17,7 +17,7 @@ module.exports.list = function (navBar, data, pageNo, startPage, endPage, totalP
         `;
     }
     // 페이지 지원
-    let leftPage = (pageNo > 10) ? `/bbs/list/${Math.floor(pageNo/10) * 10}` : '#';
+    let leftPage = (pageNo > 10) ? `/bbs/list/${Math.floor((pageNo-1)/10) * 10}` : '#';
     let pages = `<li class="page-item">
                     <a class="page-link active" href="${leftPage}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span></a>
@@ -45,7 +45,8 @@ module.exports.list = function (navBar, data, pageNo, startPage, endPage, totalP
         <div class="row">
         <div class="col-12">
         <style>
-	      background-image : url('../public/img/bg.jpg');
+            body::after { width: 100%; height: 100%; content: "";  top: 0; left: 0; z-index: -1; opacity: 0.3;background: url("./img/bg.jpg") ; position: absolute; background-size: cover;  }
+            h3 {text-align: center; margin-top: 5%;}
         </style>
             <h3>게시글 목록</h3>
             <hr>

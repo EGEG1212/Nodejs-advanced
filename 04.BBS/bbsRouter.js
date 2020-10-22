@@ -37,6 +37,23 @@ bRouter.post('/search', ut.isLoggedIn, (req, res) => {   //template.js에 있는
 bRouter.get('/bid/:bid', ut.isLoggedIn, (req, res) => {
     let bid = parseInt(req.params.bid);
     dm.getBbsData(bid, result => {
+        dm.getReplyData(bid, replies => {
+            let view = require('./view/bbsView');
+            let navBar = tplt.navBar(req.session.uname?req.session.uname:'개발자');
+            if (result.uid === req.session.uid) {   // 본인 글이면 0
+                let html = view.view(navBar, result, replies, 0);
+                res.send(html);
+            } else {                                // 본인 글이 아니면 1추가
+                dm.increaseViewCount(bid, () => {
+                    let html = view.view(navBar, result, replies, 1);
+                    res.send(html);
+                });
+            }
+        });
+        
+
+    });
+    /* dm.getBbsData(bid, result => {               //내글내가읽어도 조회수올라감
         dm.increaseViewCount(bid, () => {
             dm.getReplyData(bid, replies => {
                 let view = require('./view/bbsView');
@@ -45,7 +62,7 @@ bRouter.get('/bid/:bid', ut.isLoggedIn, (req, res) => {
                 res.send(html);
             });
         });
-    });
+    }); */
 });
 
 bRouter.post('/reply', ut.isLoggedIn, (req, res) => {
