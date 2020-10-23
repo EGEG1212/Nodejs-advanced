@@ -48,7 +48,7 @@ app.post('/login', (req, res) => {
             if (result.pwd === pwdHash) {
                 req.session.uid = uid;
                 req.session.uname = result.uname;
-                console.log('Login 성공');
+                console.log(req.session.uid,'님 Login 성공');
                 req.session.save(function() {
                     res.redirect('/');
                 });

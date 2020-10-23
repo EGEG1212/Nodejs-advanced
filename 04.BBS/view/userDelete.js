@@ -1,6 +1,6 @@
 const tplt = require('./template');
 
-module.exports.delete = function (navBar, uid) {
+module.exports.delete = function (navBar, uid, uname) {
 	return `
 		${tplt.header()}
         ${navBar}
@@ -18,7 +18,7 @@ module.exports.delete = function (navBar, uid) {
         <div class="col-6">
             <div class="card border-warning mt-3">
                 <div class="card-body">
-                    <h5 class="card-title">회원${uid}님을 정말 삭제하시겠습니까?</h5>
+                    <h5 class="card-title">회원 uid: ${uid},  uname: ${uname} 님을 정말 삭제하시겠습니까?</h5>
                     <p class="card-text text-center">
                         <button class="btn btn-primary" onclick="location.href='/user/deleteConfirm/${uid}'">삭제</button>
                         <button class="btn btn-secondary" onclick="location.href='/user/list/1'">취소</button>

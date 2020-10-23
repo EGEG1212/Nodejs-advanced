@@ -45,7 +45,7 @@ module.exports.list = function (navBar, data, pageNo, startPage, endPage, totalP
         <div class="row">
         <div class="col-12">
         <style>
-            body::after { width: 100%; height: 100%; content: "";  top: 0; left: 0; z-index: -1; opacity: 0.3;background: url("./img/bg.jpg") ; position: absolute; background-size: cover;  }
+            body::after { width: 100%; height: 100%; content: "";  top: 0; left: 0; z-index: -1; opacity: 0.3;background: url("./public/img/logo.jpg") ; position: absolute; background-size: cover;  }
             h3 {text-align: center; margin-top: 5%;}
         </style>
             <h3>게시글 목록</h3>

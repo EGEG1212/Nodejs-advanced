@@ -11,7 +11,7 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
                     <td class="col-3" style="text-align: center;">${row.email}</td>
                     <td class="col-2" style="text-align: center;">${row.regDate}</td>
                     <td class="col-1" style="text-align: center;">
-                        <a href="/user/delete/${row.uid}"><i class="fas fa-trash-alt"></i></a></td>
+                        <a href="/user/delete/${row.uid}/${row.uname}"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
         `;
     }

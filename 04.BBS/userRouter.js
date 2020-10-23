@@ -5,7 +5,7 @@ const alert = require('./view/alertMsg');
 const tplt = require('./view/template');
 
 const uRouter = express.Router();
-uRouter.get('/dispatch', (req, res) => {    //🎈뭐하는 아이인가
+uRouter.get('/dispatch', (req, res) => {    //admin인경우 사용자리스트, 일반사용자인경우 내정보수정
     if (req.session.uid === 'admin') {
         res.redirect('/user/list/1');
     } else {
@@ -125,21 +125,25 @@ uRouter.post('/update', ut.isLoggedIn, (req, res) => {
     }
 });
 
-uRouter.get('/delete/:uid', ut.isLoggedIn, (req, res) => {
+uRouter.get('/delete/:uid/:uname', ut.isLoggedIn, (req, res) => { //패스인데 :파라메타로받겠다 /userList에서 받아오기a href="/user/delete/${row.uid}/${row.uname}"
     let uid = req.params.uid;
+    let uname = req.params.uname;
+    console.log(req.params.uname);
     if (req.session.uid !== 'admin') {              //로그인되어있는 아이디가 admin과 다르면(일반회원)
         let html = alert.alertMsg('삭제 권한이 없습니다.', `/bbs/list/1`);
         res.send(html);
     } else {                                    //로그인되어있는 아이디가 admin이면
         let view = require('./view/userDelete');    //module.exports.delete = function (navBar, uid)
         let navBar = tplt.navBar(req.session.uname);
-        let html = view.delete(navBar, uid);
+        let html = view.delete(navBar, uid, uname); //userDelete.js와동일하게
         res.send(html);
     }
 });
 
-uRouter.get('/deleteConfirm/:uid', ut.isLoggedIn, (req, res) => {
+uRouter.get('/deleteConfirm/:uid/:uname', ut.isLoggedIn, (req, res) => {
     let uid = req.params.uid;
+    let uname = req.params.uname;
+
     dm.deleteUser(uid, () => {
         res.redirect('/user/list/1');
     });

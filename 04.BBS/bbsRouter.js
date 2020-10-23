@@ -5,7 +5,7 @@ const alert = require('./view/alertMsg');
 const tplt = require('./view/template');
 
 const bRouter = express.Router();
-bRouter.get('/list/:page', ut.isLoggedIn, (req, res) => {  //😥어렵..
+bRouter.get('/list/:page', ut.isLoggedIn, (req, res) => {  //😥어렵..페이지네이션
     let page = parseInt(req.params.page);
     req.session.currentPage = page;
     let offset = (page - 1) * 10;
