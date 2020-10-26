@@ -23,7 +23,7 @@ module.exports.register = function () {
         </div>
         <div class="col-3"></div>
         <div class="col-6">
-            <form action="/user/register" method="post" >
+            <form action="/user/register" method="post" enctype="multipart/form-data">
             <table class="table table-borderless">
                     <tr>
                         <td><label for="uid">사용자 ID</label></td>
@@ -50,6 +50,10 @@ module.exports.register = function () {
                         <td><input type="text" name="email" id="email" placeholder="선택 email@"></td>
                     </tr>
                     <tr>
+                    <tr>
+                        <td><label for="photo">사진</label></td>
+                        <td><input type="file" name="photo" id="photo" placeholder="선택 프로필사진"></td>
+                    </tr>
                         <td colspan="2" style="text-align: center;">
                             <input class="btn btn-primary" type="submit" value="가입">
                             <input class="btn btn-secondary" type="reset" value="취소" onclick="location.href='/user/register'>

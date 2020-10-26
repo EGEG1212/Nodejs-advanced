@@ -61,12 +61,13 @@ uRouter.post('/register',  (req, res) => {
     let uname = req.body.uname;
     let tel = req.body.tel;
     let email = req.body.email;
+    let photo = req.body.photo;
     if(uid.length>=2) {
         if(pwd.length>3) {
             if(uname.length>=2) {
                 if (pwd === pwd2) {
                     let pwdHash = ut.generateHash(pwd);
-                    let params = [uid, pwdHash, uname, tel, email];
+                    let params = [uid, pwdHash, uname, photo, tel, email];
                     dm.registerUser(params, () => {
                         let html= alert.alertMsg('환영합니다! 회원가입이 완료되었습니다.',('/login'));
                         res.send(html);
@@ -112,13 +113,14 @@ uRouter.post('/update', ut.isLoggedIn, (req, res) => {
     let uname = req.body.uname;
     let tel = req.body.tel;
     let email = req.body.email;
+    let photo = req.body.photo;
     if (pwd && pwd !== pwd2) {
         let html = alert.alertMsg('패스워드가 다릅니다.', `/user/update/${uid}`);
         res.send(html);
     } else {
         if (pwd)
             pwdHash = ut.generateHash(pwd);
-        let params = [pwdHash, uname, tel, email, uid];
+        let params = [pwdHash, uname, photo, tel, email, uid];
         dm.updateUser(params, () => {
             res.redirect(`/user/uid/${uid}`);
         });

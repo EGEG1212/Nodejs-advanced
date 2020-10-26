@@ -7,6 +7,7 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
         trs += `<tr class="d-flex">
                     <td class="col-2" style="text-align: center;">${row.uid}</td>
                     <td class="col-2" style="text-align: center;"><strong>${row.uname}</strong></td>
+                    <td rowspan="6"><img src="${row.photo}" style="width:150px"></td>
                     <td class="col-2" style="text-align: center;">${row.tel}</td>
                     <td class="col-3" style="text-align: center;">${row.email}</td>
                     <td class="col-2" style="text-align: center;">${row.regDate}</td>
@@ -54,6 +55,7 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
                 <tr class="table-secondary d-flex">
                     <td class="col-2" style="text-align: center;"><strong>아이디</strong></td>
                     <td class="col-2" style="text-align: center;"><strong>이름</strong></td>
+                    <td class="col-2" style="text-align: center;"><strong>사진</strong></td>
                     <td class="col-2" style="text-align: center;"><strong>사진</strong></td>
                     <td class="col-2" style="text-align: center;"><strong>연락처</strong></td>
                     <td class="col-3" style="text-align: center;"><strong>이메일</strong></td>

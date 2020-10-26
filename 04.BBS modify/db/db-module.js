@@ -65,7 +65,7 @@ module.exports = {
     },
     getBbsData:     function(bid, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT b.bid, b.uid, u.uname, b.title, b.content, 
+        let sql = `SELECT b.bid, b.uid, u.uname, b.photo b.title, b.content, 
                     DATE_FORMAT(b.modTime, '%Y-%m-%d %T') as modTime, 
                     b.viewCount, b.replyCount
                     FROM bbs AS b
@@ -158,7 +158,7 @@ module.exports = {
     // 사용자 DB
     registerUser:     function(params, callback) {
         let conn = this.getConnection();
-        let sql = `insert into users(uid, pwd, uname, tel, email) values(?,?,?,?,?);`;
+        let sql = `insert into users(uid, pwd, uname, photo, tel, email) values(?,?,?,?,?.?);`;
         conn.query(sql, params, (error, fields) => {
             if (error)
                 console.log(error);
@@ -188,7 +188,7 @@ module.exports = {
     },
     getUserList:      function(offset, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT uid, uname, tel, email
+        let sql = `SELECT uid, uname, photo, tel, email
                     DATE_FORMAT(regDate, '%Y-%m-%d') AS regDate
                     FROM users
                     WHERE isDeleted=0
@@ -203,7 +203,7 @@ module.exports = {
     },
     updateUser:     function(params, callback) {
         let conn = this.getConnection();
-        let sql = `update users set pwd=?, uname=?, tel=?, email=? where uid=?;`;
+        let sql = `update users set pwd=?, uname=?, photo=?, tel=?, email=? where uid=?;`;
         conn.query(sql, params, (error, fields) => {
             if (error)
                 console.log(error);

@@ -13,7 +13,7 @@ module.exports.update = function(navBar, data) {
         </div>
         <div class="col-3"></div>
         <div class="col-6">
-            <form action="/user/update" method="post">
+            <form action="/user/update" method="post" enctype="multipart/form-data"추가/삭제>
                 <input type="hidden" name="uid" value="${data.uid}">
                 <input type="hidden" name="pwdHash" value="${data.pwd}">
                 <table class="table table-borderless">
@@ -42,6 +42,16 @@ module.exports.update = function(navBar, data) {
                         <td><input type="text" name="email" id="email" value="${data.email}"></td>
                     </tr>
                     <tr>
+                    <tr>
+                        <td><label for="photo">사진</label></td>
+                            <td>
+                                <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="photo" name="photo">
+                                <label class="custom-file-label" for="photo">업로드할 사진 파일 선택</label>
+                                </div>
+                            </td>    
+                        </td>
+                    </tr>
                         <td colspan="2" style="text-align: center;">
                             <input class="btn btn-primary" type="submit" value="수정">
                             <input class="btn btn-secondary" type="reset" value="리셋">
@@ -53,6 +63,12 @@ module.exports.update = function(navBar, data) {
         <div class="col-3"></div>
     </div>
 </div>
+<script>
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
 
 		${template.footer()}
     `;
