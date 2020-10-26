@@ -15,11 +15,11 @@ module.exports = {
         </head>
         <body>
         `;
-    },
+    },      // 22줄 로고눌렀을때 http://localhost:3000/bbs/list/1여기로가면 내컴에서만정상작동되어 /루트로변경함
     navBar:     function(uname) {
         return `
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="http://localhost:3000/bbs/list/1"> 
+            <a class="navbar-brand" href="/"> 
                 <img src="/img/logo.png" alt="호서직업능력개발원"
                     style="height: 40px; margin-left: 50px; margin-right: 100px;">
             </a>
