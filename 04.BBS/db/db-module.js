@@ -188,7 +188,7 @@ module.exports = {
     },
     getUserList:      function(offset, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT uid, uname, tel, email
+        let sql = `SELECT uid, uname, tel, email,
                     DATE_FORMAT(regDate, '%Y-%m-%d') AS regDate
                     FROM users
                     WHERE isDeleted=0

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand/logo -->
+    
+    <a class="navbar-brand" href="#">
+      <img src="img/요미로고3.PNG" alt="logo" style="width:40px; margin-left: 50px;">
+    </a>
+    
+    <!-- Links -->
+  
+    <ul class="navbar-nav" style="margin-right: 650px;">
+      <li class="nav-item">
+          <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">Store</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" disabled href="#">Contact</a>
+        </li>
+    </ul>
+  
+  
+  </nav>
+  
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-9" style="margin-left: 20%;">
+        <h3 style="margin-bottom: 20px; margin-top: 20px;">Location</h3>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8945.505753959804!2d126.83893422936627!3d37.56180408201257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9c7199c883a9%3A0x42d19d1e7e163c32!2z7J6s64uo67KV7J24IOyEnOyauO2YuOyEnOyngeyXheyghOusuO2Vmeq1kA!5e0!3m2!1sko!2skr!4v1603427728916!5m2!1sko!2skr" 
+        width="480" height="360" frameborder="0" style="border:0; text-align: center;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+        <h3 style="margin-bottom: 20px; margin-top: 20px;">Contact</h3>
+        <h6>Please, contact me if you have any question about me. I will answer you as soon as possible. Thank you! </h6> 
+        <form action="/contact"  method="POST">
+            
+            <div class="form-group">
+              <label for="cname">name:</label>
+              <input type="text" class="form-control" placeholder="Enter your name" id="cname" name="cname">
+            </div>
+            <div class="form-group">
+                <label for="cemail">Email address:</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="cemail" name="cemail">
+              </div>
+            
+            <div class="form-group">
+                <label for="cmessage">Message:</label>
+                <textarea class="form-control" rows="5" id="cmessage" name="cmessage"></textarea>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> Remember me
+                </label>
+              </div>
+            <button type="submit" class="btn btn-info">Send</button>
+          </form>       
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-bottom justify-content-center">
+    <!-- Navbar text-->
+    <span class="navbar-text "  >
+      Copyright &copy; 2020 Yomi's Garden
+    </span>
+  
+  </nav>
+  
+  
+</body>
+</html>
