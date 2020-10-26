@@ -23,7 +23,7 @@ module.exports.register = function () {
         </div>
         <div class="col-3"></div>
         <div class="col-6">
-            <form action="/user/register" method="post">
+            <form action="/user/register" method="post" >
             <table class="table table-borderless">
                     <tr>
                         <td><label for="uid">사용자 ID</label></td>

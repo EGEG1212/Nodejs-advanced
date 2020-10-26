@@ -21,7 +21,7 @@ module.exports = {
     // BBS DB
     getBbsList:     function(offset, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT b.bid, b.uid, u.uname, b.title, b.content, 
+        let sql = `SELECT b.bid, b.uid, u.uname, b.photo, b.title, b.content, 
                     b.modTime, b.viewCount, b.replyCount
                     FROM bbs AS b
                     JOIN users AS u
@@ -49,7 +49,7 @@ module.exports = {
     },
     getSearchList:     function(keyword, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT b.bid, b.uid, u.uname, b.title, b.content, 
+        let sql = `SELECT b.bid, b.uid, u.uname, b.photo, b.title, b.content, 
                     b.modTime, b.viewCount, b.replyCount
                     FROM bbs AS b
                     JOIN users AS u
@@ -188,7 +188,7 @@ module.exports = {
     },
     getUserList:      function(offset, callback) {
         let conn = this.getConnection();
-        let sql = `SELECT uid, uname, tel, email,
+        let sql = `SELECT uid, uname, tel, email
                     DATE_FORMAT(regDate, '%Y-%m-%d') AS regDate
                     FROM users
                     WHERE isDeleted=0
