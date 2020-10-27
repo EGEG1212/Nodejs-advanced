@@ -1,4 +1,5 @@
 const express = require('express');
+const favicon = require('express-favicon');         //페비콘기능 추가 19줄셋뚜셋뚜
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -15,6 +16,7 @@ app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist')
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/popper', express.static(__dirname + '/node_modules/@popperjs/core/dist/umd'));
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.urlencoded({extended: false})); 
 app.use(cookieParser('1q2w3e4r5t6y'));
 app.use(session({

@@ -57,7 +57,7 @@ module.exports.list = function (navBar, rows, pageNo, totalPage) {      //부르
                     <td class="col-2" style="text-align: center;"><strong>연락처</strong></td>
                     <td class="col-3" style="text-align: center;"><strong>이메일</strong></td>
                     <td class="col-2" style="text-align: center;"><strong>등록일</strong></td>
-                    <td class="col-1" style="text-align: center;"><strong>액션</strong></td>
+                    <td class="col-1" style="text-align: center;"><strong>삭제</strong></td>
                 </tr>
                 ${trs}
             </table>

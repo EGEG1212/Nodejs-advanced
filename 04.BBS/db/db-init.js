@@ -36,6 +36,30 @@ conn.query(sqlUsers, function(error, fields) {
 });
 conn.end(); */
 
+/* let usersArray = [
+    ['admin', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '관리자' ],
+    ['anne', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '고채경' ],
+    ['eskim', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '김은숙'],
+    ['madre', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '마드레'],
+    ['wjlee', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '이우정'],
+    ['넌좋은애', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '넌좋은애'],
+    ['노란연못', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '노란연못'],
+    ['물병', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '물병'],
+    ['새싹르뱅', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '새싹르뱅'],
+    ['제클린', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '제클린'],
+    ['해피요', 'A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=', '해피요'],
+];
+let sqlInsert = `insert into users(uid, pwd, uname) values(?,?,?);`;
+
+let conn = getConnection();
+for (let params of usersArray) {
+    conn.query(sqlInsert, params, function(error, fields) {
+        if (error)
+            console.log(error);
+    });
+}
+conn.end(); */
+
 /* let sqlBbs = `
     create table if not exists bbs (
         bid int not null primary key auto_increment,
@@ -77,7 +101,7 @@ for (let params of bbsArray) {
 conn.end(); */
 
 
-let bbsArray = [
+/* let bbsArray = [
     ['넌좋은애', '팡도르', `스티프 열심히 밥주고 팡도르 만들어 봤어요~ 버터랑 계란이 많이 들어가서 보험으로 이스트 안꼬집도 넣었는데.. 다음엔 파스타마드레 잘 키워서 이스트없이 만들어 봐야곘어요 `],
     ['제클린', '우리집 르뱅이가 2배를 못찍는 이유', `백밀 피딩할때와 다르게 반점이 있었는데 호밀밀기울인줄 알았어요.. 색이 좀 이상해도 그러려니 했는데 알고보니 이미 죽은거였어요!! 이런 세상에...`],
     ['물병', '맛있다 해서 또 만든 르뱅바게트빵', `급하게 반죽하고 냉장고에 넣어둔지 2-3시간 볼일보다 와서 마저작업했어요, 딱 1차발효되어있어서 좋았어요! 이번에도 크랙이 좀 아쉽지만.. 스팀없는 오븐탓인지 아님 실력부족인지 ㅎㅎ그래도 맛이 바게트예요!`],
@@ -106,7 +130,7 @@ for (let params of bbsArray) {
             console.log(error);
     });
 }
-conn.end();
+conn.end(); */
 
 /* let replyBbs = `
     create table if not exists reply (
@@ -142,6 +166,27 @@ for (let params of replyArray) {
     });
 }
 conn.end(); */
+
+let replyArray = [
+    [1022, '노란연못', '후추와 부추의 조합이 괜찮았나요? 입에맞으셨다면 다행이예요:-)'],
+    [1022, '새싹르뱅', '그럼요~ 입맛에 딱이였어요!'],
+    [1019, 'anne', '기공을 봐도봐도 잘 몰랐었는데, 도움이 많이 되었습니다!'],
+    [1019, '노란연못', '도움이 되기를 바라는 마음에서 글올려보았어요^^'],
+    [1023, 'admin', '스콘에 르뱅을 넣을생각은 못했어요 ㅎㅎ 한번 해볼게요~'],
+    [1023, 'madre', '계란대신에 넣는거라.. 베파 꼭 넣으셔야 잘 부풀어요 ㅎㅎ'],
+    [1025, 'anne', '책 가지고만 있어도 든든하지요 ㅎㅎ 보시다가 공유하고픈 자료 있으심 알려주세요~~'],
+    [1025, '해피요', '그럼요~']
+];
+let sqlInsertReply = `insert into reply(bid, uid, content) values(?,?,?);`;
+
+let conn = getConnection();
+for (let params of replyArray) {
+    conn.query(sqlInsertReply, params, function(error, fields) {
+        if (error)
+            console.log(error);
+    });
+}
+conn.end();
 
 /* let sqlSelect = `select * from bbs where bid=1006;`;
 let sqlReplyCount = `select count(*) as count from reply where bid=?;`;
