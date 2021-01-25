@@ -72,7 +72,7 @@ bRouter.post('/reply', ut.isLoggedIn, (req, res) => {
     let isMine = (uid === req.body.uid) ? 1 : 0;
     let params = [bid, uid, content, isMine];
     dm.insertReply(params, () => {                  //댓글생성
-        dm.increaseReplyCount(bid, () => {              //조회수올리기
+        dm.increaseReplyCount(bid, () => {              //댓글수올리기
             res.redirect(`/bbs/bid/${bid}`)
         });
     });
